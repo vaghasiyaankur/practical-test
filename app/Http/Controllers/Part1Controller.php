@@ -31,8 +31,8 @@ class Part1Controller extends Controller
      */
     public function practical2()
     {
-        $posts = Post::withCount('post_comments')->having('post_comments_count', '>', 2)->get();
-        return view('part1.practical1', compact('posts'));
+        $posts = Post::with('post_comments')->withCount('post_comments')->having('post_comments_count', '>', 2)->get();
+        return view('part1.practical2', compact('posts'));
     }
 
     /**
@@ -45,7 +45,7 @@ class Part1Controller extends Controller
     public function practical3()
     {
         $students = Student::whereDoesntHave('student_assign_class')->get();
-        return view('part1.practical1', compact('students'));
+        return view('part1.practical3', compact('students'));
     }
 
     /**
@@ -57,7 +57,8 @@ class Part1Controller extends Controller
      */
     public function practical4()
     {
-        $customers = DB::table('customers')->leftJoin('orders', 'customers.id', '=', 'orders.customer_id')->whereNull('orders.id')->get();
+        $customers = DB::table('customers')->leftJoin('orders', 'customers.id', '=', 'orders.customer_id')->select('customers.id', 'customers.name','orders.amount','orders.date')->get();
+
         return view('part1.practical4', compact('customers'));
     }
 }

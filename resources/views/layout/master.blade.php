@@ -104,6 +104,12 @@ tr:nth-child(even) {
                   <p>Practical 3</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('practical.1.4')}}" class="nav-link {{ \Request::route()->getName() == 'practical.1.4' ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>Practical 4</p>
+                </a>
+              </li>
             </ul>
           </li>
         </ul>
