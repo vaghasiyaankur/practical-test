@@ -54,7 +54,7 @@ class Part2Controller extends Controller
     public function facultyList()
     {
         $faculties = Faculty::all();
-        return view('part2.faculty_list', compact('faculties'));
+        return view('part2.faculty_list', cw ompact('faculties'));
     }
 
     /**
