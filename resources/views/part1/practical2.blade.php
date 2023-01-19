@@ -25,6 +25,12 @@ exist..</p>
     <section class="content">
       <div class="container-fluid">
         <p>Ans : Post::withCount('post_comments')->having('post_comments_count', '>', 2)->get();</p>
+        <p>Ans : $result = DB::table('posts')
+          ->select('posts.*')
+          ->join('comments', 'posts.id', '=', 'comments.post_id')
+          ->groupBy('posts.id')
+          ->havingRaw('COUNT(comments.id) > 2')
+          ->count();</p>
       </div><!-- /.container-fluid -->
     </section>
 

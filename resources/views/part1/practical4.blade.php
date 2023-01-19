@@ -60,6 +60,14 @@
     <section class="content">
       <div class="container-fluid">
         <p>Ans : DB::table('customers')->leftJoin('orders', 'customers.id', '=', 'orders.customer_id')->whereNull('orders.id')->get()</p>
+        <p>
+          Ans :  $result = DB::table('CUSTOMERS')
+          ->select('ID', 'NAME', null as 'AMOUNT', null as 'DATE')
+          ->union(DB::table('ORDERS')
+              ->select('CUSTOMER_ID as ID', 'CUSTOMERS.NAME', 'AMOUNT', 'DATE')
+              ->join('CUSTOMERS', 'CUSTOMERS.ID', '=', 'ORDERS.CUSTOMER_ID')
+          )->get();
+        </p>
       </div><!-- /.container-fluid -->
     </section>
 

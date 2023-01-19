@@ -25,6 +25,13 @@
     <section class="content">
       <div class="container-fluid">
         <p>Ans : Student::whereDoesntHave('student_assign_class')->get();</p>
+        <p>
+          Ans : $result = DB::table('students')
+          ->select('*')
+          ->leftJoin('class_students', 'students.id', '=', 'class_students.student_id')
+          ->whereNull('class_students.student_id')
+          ->get();
+        </p>
       </div><!-- /.container-fluid -->
     </section>
 

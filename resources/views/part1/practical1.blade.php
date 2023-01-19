@@ -26,6 +26,12 @@
     <section class="content">
       <div class="container-fluid">
         <p>Ans : Post::having('id', '>', 3)->having('id', '<', 9)->get();</p>
+        <p>
+          Ans : $result = DB::table('posts')
+          ->select('*')
+          ->whereBetween('id', [4, 8])
+          ->get();
+        </p>
       </div><!-- /.container-fluid -->
     </section>
 
